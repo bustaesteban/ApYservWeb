@@ -1,0 +1,1127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AcademiaSistemasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Calificaciones">
+          <Key>
+            <PropertyRef Name="CalificacionID" />
+          </Key>
+          <Property Name="CalificacionID" Type="int" Nullable="false" />
+          <Property Name="EstudianteID" Type="int" />
+          <Property Name="CursoID" Type="int" />
+          <Property Name="Nota" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="CategoriaID" />
+          </Key>
+          <Property Name="CategoriaID" Type="int" Nullable="false" />
+          <Property Name="NombreCategoria" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="CursoCategoria">
+          <Key>
+            <PropertyRef Name="CursoCategoriaID" />
+          </Key>
+          <Property Name="CursoCategoriaID" Type="int" Nullable="false" />
+          <Property Name="CursoID" Type="int" />
+          <Property Name="CategoriaID" Type="int" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="CursoHorario">
+          <Key>
+            <PropertyRef Name="CursoHorarioID" />
+          </Key>
+          <Property Name="CursoHorarioID" Type="int" Nullable="false" />
+          <Property Name="CursoID" Type="int" />
+          <Property Name="HorarioID" Type="int" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="CursoRecurso">
+          <Key>
+            <PropertyRef Name="CursoRecursoID" />
+          </Key>
+          <Property Name="CursoRecursoID" Type="int" Nullable="false" />
+          <Property Name="CursoID" Type="int" />
+          <Property Name="RecursoID" Type="int" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Cursos">
+          <Key>
+            <PropertyRef Name="CursoID" />
+          </Key>
+          <Property Name="CursoID" Type="int" Nullable="false" />
+          <Property Name="NombreCurso" Type="nvarchar" MaxLength="100" />
+          <Property Name="Creditos" Type="int" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+          <Property Name="ProfesorID" Type="int" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="CursosMaterias">
+          <Key>
+            <PropertyRef Name="CursoMateriaID" />
+          </Key>
+          <Property Name="CursoMateriaID" Type="int" Nullable="false" />
+          <Property Name="CursoID" Type="int" />
+          <Property Name="MateriaID" Type="int" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Estudiantes">
+          <Key>
+            <PropertyRef Name="EstudianteID" />
+          </Key>
+          <Property Name="EstudianteID" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaNacimiento" Type="date" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Horarios">
+          <Key>
+            <PropertyRef Name="HorarioID" />
+          </Key>
+          <Property Name="HorarioID" Type="int" Nullable="false" />
+          <Property Name="DiaSemana" Type="nvarchar" MaxLength="20" />
+          <Property Name="HoraInicio" Type="time" Precision="7" />
+          <Property Name="HoraFin" Type="time" Precision="7" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Inscripciones">
+          <Key>
+            <PropertyRef Name="InscripcionID" />
+          </Key>
+          <Property Name="InscripcionID" Type="int" Nullable="false" />
+          <Property Name="EstudianteID" Type="int" />
+          <Property Name="CursoID" Type="int" />
+          <Property Name="FechaInscripcion" Type="date" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Materias">
+          <Key>
+            <PropertyRef Name="MateriaID" />
+          </Key>
+          <Property Name="MateriaID" Type="int" Nullable="false" />
+          <Property Name="NombreMateria" Type="nvarchar" MaxLength="100" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Niveles">
+          <Key>
+            <PropertyRef Name="NivelID" />
+          </Key>
+          <Property Name="NivelID" Type="int" Nullable="false" />
+          <Property Name="NombreNivel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Pagos">
+          <Key>
+            <PropertyRef Name="PagoID" />
+          </Key>
+          <Property Name="PagoID" Type="int" Nullable="false" />
+          <Property Name="InscripcionID" Type="int" />
+          <Property Name="Monto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FechaPago" Type="date" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Profesores">
+          <Key>
+            <PropertyRef Name="ProfesorID" />
+          </Key>
+          <Property Name="ProfesorID" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Recursos">
+          <Key>
+            <PropertyRef Name="RecursoID" />
+          </Key>
+          <Property Name="RecursoID" Type="int" Nullable="false" />
+          <Property Name="NombreRecurso" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Requisitos">
+          <Key>
+            <PropertyRef Name="RequisitoID" />
+          </Key>
+          <Property Name="RequisitoID" Type="int" Nullable="false" />
+          <Property Name="CursoID" Type="int" />
+          <Property Name="NivelID" Type="int" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__Calificac__Curso__37A5467C">
+          <End Role="Cursos" Type="Self.Cursos" Multiplicity="0..1" />
+          <End Role="Calificaciones" Type="Self.Calificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="Calificaciones">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Calificac__Estud__36B12243">
+          <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="0..1" />
+          <End Role="Calificaciones" Type="Self.Calificaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiantes">
+              <PropertyRef Name="EstudianteID" />
+            </Principal>
+            <Dependent Role="Calificaciones">
+              <PropertyRef Name="EstudianteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursoCate__Categ__46E78A0C">
+          <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+          <End Role="CursoCategoria" Type="Self.CursoCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias">
+              <PropertyRef Name="CategoriaID" />
+            </Principal>
+            <Dependent Role="CursoCategoria">
+              <PropertyRef Name="CategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursoCate__Curso__45F365D3">
+          <End Role="Cursos" Type="Self.Cursos" Multiplicity="0..1" />
+          <End Role="CursoCategoria" Type="Self.CursoCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="CursoCategoria">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursoHora__Curso__4D94879B">
+          <End Role="Cursos" Type="Self.Cursos" Multiplicity="0..1" />
+          <End Role="CursoHorario" Type="Self.CursoHorario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="CursoHorario">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursoHora__Horar__4E88ABD4">
+          <End Role="Horarios" Type="Self.Horarios" Multiplicity="0..1" />
+          <End Role="CursoHorario" Type="Self.CursoHorario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horarios">
+              <PropertyRef Name="HorarioID" />
+            </Principal>
+            <Dependent Role="CursoHorario">
+              <PropertyRef Name="HorarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursoRecu__Curso__5535A963">
+          <End Role="Cursos" Type="Self.Cursos" Multiplicity="0..1" />
+          <End Role="CursoRecurso" Type="Self.CursoRecurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="CursoRecurso">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursoRecu__Recur__5629CD9C">
+          <End Role="Recursos" Type="Self.Recursos" Multiplicity="0..1" />
+          <End Role="CursoRecurso" Type="Self.CursoRecurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recursos">
+              <PropertyRef Name="RecursoID" />
+            </Principal>
+            <Dependent Role="CursoRecurso">
+              <PropertyRef Name="RecursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cursos__Profesor__2A4B4B5E">
+          <End Role="Profesores" Type="Self.Profesores" Multiplicity="0..1" />
+          <End Role="Cursos" Type="Self.Cursos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesores">
+              <PropertyRef Name="ProfesorID" />
+            </Principal>
+            <Dependent Role="Cursos">
+              <PropertyRef Name="ProfesorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursosMat__Curso__5CD6CB2B">
+          <End Role="Cursos" Type="Self.Cursos" Multiplicity="0..1" />
+          <End Role="CursosMaterias" Type="Self.CursosMaterias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="CursosMaterias">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursosMat__Mater__5DCAEF64">
+          <End Role="Materias" Type="Self.Materias" Multiplicity="0..1" />
+          <End Role="CursosMaterias" Type="Self.CursosMaterias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materias">
+              <PropertyRef Name="MateriaID" />
+            </Principal>
+            <Dependent Role="CursosMaterias">
+              <PropertyRef Name="MateriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inscripci__Curso__2F10007B">
+          <End Role="Cursos" Type="Self.Cursos" Multiplicity="0..1" />
+          <End Role="Inscripciones" Type="Self.Inscripciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="Inscripciones">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inscripci__Estud__2E1BDC42">
+          <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="0..1" />
+          <End Role="Inscripciones" Type="Self.Inscripciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiantes">
+              <PropertyRef Name="EstudianteID" />
+            </Principal>
+            <Dependent Role="Inscripciones">
+              <PropertyRef Name="EstudianteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pagos__Inscripci__32E0915F">
+          <End Role="Inscripciones" Type="Self.Inscripciones" Multiplicity="0..1" />
+          <End Role="Pagos" Type="Self.Pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inscripciones">
+              <PropertyRef Name="InscripcionID" />
+            </Principal>
+            <Dependent Role="Pagos">
+              <PropertyRef Name="InscripcionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requisito__Curso__3E52440B">
+          <End Role="Cursos" Type="Self.Cursos" Multiplicity="0..1" />
+          <End Role="Requisitos" Type="Self.Requisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="Requisitos">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requisito__Nivel__3F466844">
+          <End Role="Niveles" Type="Self.Niveles" Multiplicity="0..1" />
+          <End Role="Requisitos" Type="Self.Requisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Niveles">
+              <PropertyRef Name="NivelID" />
+            </Principal>
+            <Dependent Role="Requisitos">
+              <PropertyRef Name="NivelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AcademiaSistemasModelStoreContainer">
+          <EntitySet Name="Calificaciones" EntityType="Self.Calificaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CursoCategoria" EntityType="Self.CursoCategoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CursoHorario" EntityType="Self.CursoHorario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CursoRecurso" EntityType="Self.CursoRecurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cursos" EntityType="Self.Cursos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CursosMaterias" EntityType="Self.CursosMaterias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estudiantes" EntityType="Self.Estudiantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Horarios" EntityType="Self.Horarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inscripciones" EntityType="Self.Inscripciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Materias" EntityType="Self.Materias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Niveles" EntityType="Self.Niveles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pagos" EntityType="Self.Pagos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profesores" EntityType="Self.Profesores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recursos" EntityType="Self.Recursos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Requisitos" EntityType="Self.Requisitos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Calificac__Curso__37A5467C" Association="Self.FK__Calificac__Curso__37A5467C">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="Calificaciones" EntitySet="Calificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Calificac__Estud__36B12243" Association="Self.FK__Calificac__Estud__36B12243">
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+            <End Role="Calificaciones" EntitySet="Calificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursoCate__Categ__46E78A0C" Association="Self.FK__CursoCate__Categ__46E78A0C">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="CursoCategoria" EntitySet="CursoCategoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursoCate__Curso__45F365D3" Association="Self.FK__CursoCate__Curso__45F365D3">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="CursoCategoria" EntitySet="CursoCategoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursoHora__Curso__4D94879B" Association="Self.FK__CursoHora__Curso__4D94879B">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="CursoHorario" EntitySet="CursoHorario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursoHora__Horar__4E88ABD4" Association="Self.FK__CursoHora__Horar__4E88ABD4">
+            <End Role="Horarios" EntitySet="Horarios" />
+            <End Role="CursoHorario" EntitySet="CursoHorario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursoRecu__Curso__5535A963" Association="Self.FK__CursoRecu__Curso__5535A963">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="CursoRecurso" EntitySet="CursoRecurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursoRecu__Recur__5629CD9C" Association="Self.FK__CursoRecu__Recur__5629CD9C">
+            <End Role="Recursos" EntitySet="Recursos" />
+            <End Role="CursoRecurso" EntitySet="CursoRecurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cursos__Profesor__2A4B4B5E" Association="Self.FK__Cursos__Profesor__2A4B4B5E">
+            <End Role="Profesores" EntitySet="Profesores" />
+            <End Role="Cursos" EntitySet="Cursos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursosMat__Curso__5CD6CB2B" Association="Self.FK__CursosMat__Curso__5CD6CB2B">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="CursosMaterias" EntitySet="CursosMaterias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursosMat__Mater__5DCAEF64" Association="Self.FK__CursosMat__Mater__5DCAEF64">
+            <End Role="Materias" EntitySet="Materias" />
+            <End Role="CursosMaterias" EntitySet="CursosMaterias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inscripci__Curso__2F10007B" Association="Self.FK__Inscripci__Curso__2F10007B">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="Inscripciones" EntitySet="Inscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inscripci__Estud__2E1BDC42" Association="Self.FK__Inscripci__Estud__2E1BDC42">
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+            <End Role="Inscripciones" EntitySet="Inscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pagos__Inscripci__32E0915F" Association="Self.FK__Pagos__Inscripci__32E0915F">
+            <End Role="Inscripciones" EntitySet="Inscripciones" />
+            <End Role="Pagos" EntitySet="Pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requisito__Curso__3E52440B" Association="Self.FK__Requisito__Curso__3E52440B">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="Requisitos" EntitySet="Requisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requisito__Nivel__3F466844" Association="Self.FK__Requisito__Nivel__3F466844">
+            <End Role="Niveles" EntitySet="Niveles" />
+            <End Role="Requisitos" EntitySet="Requisitos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AcademiaSistemasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Calificacione">
+          <Key>
+            <PropertyRef Name="CalificacionID" />
+          </Key>
+          <Property Name="CalificacionID" Type="Int32" Nullable="false" />
+          <Property Name="EstudianteID" Type="Int32" />
+          <Property Name="CursoID" Type="Int32" />
+          <Property Name="Nota" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK__Calificac__Curso__37A5467C" FromRole="Calificaciones" ToRole="Cursos" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK__Calificac__Estud__36B12243" FromRole="Calificaciones" ToRole="Estudiantes" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="CategoriaID" />
+          </Key>
+          <Property Name="CategoriaID" Type="Int32" Nullable="false" />
+          <Property Name="NombreCategoria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="CursoCategorias" Relationship="Self.FK__CursoCate__Categ__46E78A0C" FromRole="Categorias" ToRole="CursoCategoria" />
+        </EntityType>
+        <EntityType Name="CursoCategoria">
+          <Key>
+            <PropertyRef Name="CursoCategoriaID" />
+          </Key>
+          <Property Name="CursoCategoriaID" Type="Int32" Nullable="false" />
+          <Property Name="CursoID" Type="Int32" />
+          <Property Name="CategoriaID" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Categoria" Relationship="Self.FK__CursoCate__Categ__46E78A0C" FromRole="CursoCategoria" ToRole="Categorias" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK__CursoCate__Curso__45F365D3" FromRole="CursoCategoria" ToRole="Cursos" />
+        </EntityType>
+        <EntityType Name="CursoHorario">
+          <Key>
+            <PropertyRef Name="CursoHorarioID" />
+          </Key>
+          <Property Name="CursoHorarioID" Type="Int32" Nullable="false" />
+          <Property Name="CursoID" Type="Int32" />
+          <Property Name="HorarioID" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK__CursoHora__Curso__4D94879B" FromRole="CursoHorario" ToRole="Cursos" />
+          <NavigationProperty Name="Horario" Relationship="Self.FK__CursoHora__Horar__4E88ABD4" FromRole="CursoHorario" ToRole="Horarios" />
+        </EntityType>
+        <EntityType Name="CursoRecurso">
+          <Key>
+            <PropertyRef Name="CursoRecursoID" />
+          </Key>
+          <Property Name="CursoRecursoID" Type="Int32" Nullable="false" />
+          <Property Name="CursoID" Type="Int32" />
+          <Property Name="RecursoID" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK__CursoRecu__Curso__5535A963" FromRole="CursoRecurso" ToRole="Cursos" />
+          <NavigationProperty Name="Recurso" Relationship="Self.FK__CursoRecu__Recur__5629CD9C" FromRole="CursoRecurso" ToRole="Recursos" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="CursoID" />
+          </Key>
+          <Property Name="CursoID" Type="Int32" Nullable="false" />
+          <Property Name="NombreCurso" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Creditos" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProfesorID" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Calificaciones" Relationship="Self.FK__Calificac__Curso__37A5467C" FromRole="Cursos" ToRole="Calificaciones" />
+          <NavigationProperty Name="CursoCategorias" Relationship="Self.FK__CursoCate__Curso__45F365D3" FromRole="Cursos" ToRole="CursoCategoria" />
+          <NavigationProperty Name="CursoHorarios" Relationship="Self.FK__CursoHora__Curso__4D94879B" FromRole="Cursos" ToRole="CursoHorario" />
+          <NavigationProperty Name="CursoRecursoes" Relationship="Self.FK__CursoRecu__Curso__5535A963" FromRole="Cursos" ToRole="CursoRecurso" />
+          <NavigationProperty Name="Profesore" Relationship="Self.FK__Cursos__Profesor__2A4B4B5E" FromRole="Cursos" ToRole="Profesores" />
+          <NavigationProperty Name="CursosMaterias" Relationship="Self.FK__CursosMat__Curso__5CD6CB2B" FromRole="Cursos" ToRole="CursosMaterias" />
+          <NavigationProperty Name="Inscripciones" Relationship="Self.FK__Inscripci__Curso__2F10007B" FromRole="Cursos" ToRole="Inscripciones" />
+          <NavigationProperty Name="Requisitos" Relationship="Self.FK__Requisito__Curso__3E52440B" FromRole="Cursos" ToRole="Requisitos" />
+        </EntityType>
+        <EntityType Name="CursosMateria">
+          <Key>
+            <PropertyRef Name="CursoMateriaID" />
+          </Key>
+          <Property Name="CursoMateriaID" Type="Int32" Nullable="false" />
+          <Property Name="CursoID" Type="Int32" />
+          <Property Name="MateriaID" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK__CursosMat__Curso__5CD6CB2B" FromRole="CursosMaterias" ToRole="Cursos" />
+          <NavigationProperty Name="Materia" Relationship="Self.FK__CursosMat__Mater__5DCAEF64" FromRole="CursosMaterias" ToRole="Materias" />
+        </EntityType>
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="EstudianteID" />
+          </Key>
+          <Property Name="EstudianteID" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Calificaciones" Relationship="Self.FK__Calificac__Estud__36B12243" FromRole="Estudiantes" ToRole="Calificaciones" />
+          <NavigationProperty Name="Inscripciones" Relationship="Self.FK__Inscripci__Estud__2E1BDC42" FromRole="Estudiantes" ToRole="Inscripciones" />
+        </EntityType>
+        <EntityType Name="Horario">
+          <Key>
+            <PropertyRef Name="HorarioID" />
+          </Key>
+          <Property Name="HorarioID" Type="Int32" Nullable="false" />
+          <Property Name="DiaSemana" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HoraInicio" Type="Time" Precision="7" />
+          <Property Name="HoraFin" Type="Time" Precision="7" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="CursoHorarios" Relationship="Self.FK__CursoHora__Horar__4E88ABD4" FromRole="Horarios" ToRole="CursoHorario" />
+        </EntityType>
+        <EntityType Name="Inscripcione">
+          <Key>
+            <PropertyRef Name="InscripcionID" />
+          </Key>
+          <Property Name="InscripcionID" Type="Int32" Nullable="false" />
+          <Property Name="EstudianteID" Type="Int32" />
+          <Property Name="CursoID" Type="Int32" />
+          <Property Name="FechaInscripcion" Type="DateTime" Precision="0" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK__Inscripci__Curso__2F10007B" FromRole="Inscripciones" ToRole="Cursos" />
+          <NavigationProperty Name="Estudiante" Relationship="Self.FK__Inscripci__Estud__2E1BDC42" FromRole="Inscripciones" ToRole="Estudiantes" />
+          <NavigationProperty Name="Pagos" Relationship="Self.FK__Pagos__Inscripci__32E0915F" FromRole="Inscripciones" ToRole="Pagos" />
+        </EntityType>
+        <EntityType Name="Materia">
+          <Key>
+            <PropertyRef Name="MateriaID" />
+          </Key>
+          <Property Name="MateriaID" Type="Int32" Nullable="false" />
+          <Property Name="NombreMateria" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="CursosMaterias" Relationship="Self.FK__CursosMat__Mater__5DCAEF64" FromRole="Materias" ToRole="CursosMaterias" />
+        </EntityType>
+        <EntityType Name="Nivele">
+          <Key>
+            <PropertyRef Name="NivelID" />
+          </Key>
+          <Property Name="NivelID" Type="Int32" Nullable="false" />
+          <Property Name="NombreNivel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Requisitos" Relationship="Self.FK__Requisito__Nivel__3F466844" FromRole="Niveles" ToRole="Requisitos" />
+        </EntityType>
+        <EntityType Name="Pago">
+          <Key>
+            <PropertyRef Name="PagoID" />
+          </Key>
+          <Property Name="PagoID" Type="Int32" Nullable="false" />
+          <Property Name="InscripcionID" Type="Int32" />
+          <Property Name="Monto" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="FechaPago" Type="DateTime" Precision="0" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Inscripcione" Relationship="Self.FK__Pagos__Inscripci__32E0915F" FromRole="Pagos" ToRole="Inscripciones" />
+        </EntityType>
+        <EntityType Name="Profesore">
+          <Key>
+            <PropertyRef Name="ProfesorID" />
+          </Key>
+          <Property Name="ProfesorID" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Cursos" Relationship="Self.FK__Cursos__Profesor__2A4B4B5E" FromRole="Profesores" ToRole="Cursos" />
+        </EntityType>
+        <EntityType Name="Recurso">
+          <Key>
+            <PropertyRef Name="RecursoID" />
+          </Key>
+          <Property Name="RecursoID" Type="Int32" Nullable="false" />
+          <Property Name="NombreRecurso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="CursoRecursoes" Relationship="Self.FK__CursoRecu__Recur__5629CD9C" FromRole="Recursos" ToRole="CursoRecurso" />
+        </EntityType>
+        <EntityType Name="Requisito">
+          <Key>
+            <PropertyRef Name="RequisitoID" />
+          </Key>
+          <Property Name="RequisitoID" Type="Int32" Nullable="false" />
+          <Property Name="CursoID" Type="Int32" />
+          <Property Name="NivelID" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK__Requisito__Curso__3E52440B" FromRole="Requisitos" ToRole="Cursos" />
+          <NavigationProperty Name="Nivele" Relationship="Self.FK__Requisito__Nivel__3F466844" FromRole="Requisitos" ToRole="Niveles" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__Calificac__Curso__37A5467C">
+          <End Role="Cursos" Type="Self.Curso" Multiplicity="0..1" />
+          <End Role="Calificaciones" Type="Self.Calificacione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="Calificaciones">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Calificac__Estud__36B12243">
+          <End Role="Estudiantes" Type="Self.Estudiante" Multiplicity="0..1" />
+          <End Role="Calificaciones" Type="Self.Calificacione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiantes">
+              <PropertyRef Name="EstudianteID" />
+            </Principal>
+            <Dependent Role="Calificaciones">
+              <PropertyRef Name="EstudianteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursoCate__Categ__46E78A0C">
+          <End Role="Categorias" Type="Self.Categoria" Multiplicity="0..1" />
+          <End Role="CursoCategoria" Type="Self.CursoCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias">
+              <PropertyRef Name="CategoriaID" />
+            </Principal>
+            <Dependent Role="CursoCategoria">
+              <PropertyRef Name="CategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursoCate__Curso__45F365D3">
+          <End Role="Cursos" Type="Self.Curso" Multiplicity="0..1" />
+          <End Role="CursoCategoria" Type="Self.CursoCategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="CursoCategoria">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursoHora__Curso__4D94879B">
+          <End Role="Cursos" Type="Self.Curso" Multiplicity="0..1" />
+          <End Role="CursoHorario" Type="Self.CursoHorario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="CursoHorario">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursoHora__Horar__4E88ABD4">
+          <End Role="Horarios" Type="Self.Horario" Multiplicity="0..1" />
+          <End Role="CursoHorario" Type="Self.CursoHorario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horarios">
+              <PropertyRef Name="HorarioID" />
+            </Principal>
+            <Dependent Role="CursoHorario">
+              <PropertyRef Name="HorarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursoRecu__Curso__5535A963">
+          <End Role="Cursos" Type="Self.Curso" Multiplicity="0..1" />
+          <End Role="CursoRecurso" Type="Self.CursoRecurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="CursoRecurso">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursoRecu__Recur__5629CD9C">
+          <End Role="Recursos" Type="Self.Recurso" Multiplicity="0..1" />
+          <End Role="CursoRecurso" Type="Self.CursoRecurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Recursos">
+              <PropertyRef Name="RecursoID" />
+            </Principal>
+            <Dependent Role="CursoRecurso">
+              <PropertyRef Name="RecursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cursos__Profesor__2A4B4B5E">
+          <End Role="Profesores" Type="Self.Profesore" Multiplicity="0..1" />
+          <End Role="Cursos" Type="Self.Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profesores">
+              <PropertyRef Name="ProfesorID" />
+            </Principal>
+            <Dependent Role="Cursos">
+              <PropertyRef Name="ProfesorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursosMat__Curso__5CD6CB2B">
+          <End Role="Cursos" Type="Self.Curso" Multiplicity="0..1" />
+          <End Role="CursosMaterias" Type="Self.CursosMateria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="CursosMaterias">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inscripci__Curso__2F10007B">
+          <End Role="Cursos" Type="Self.Curso" Multiplicity="0..1" />
+          <End Role="Inscripciones" Type="Self.Inscripcione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="Inscripciones">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requisito__Curso__3E52440B">
+          <End Role="Cursos" Type="Self.Curso" Multiplicity="0..1" />
+          <End Role="Requisitos" Type="Self.Requisito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="CursoID" />
+            </Principal>
+            <Dependent Role="Requisitos">
+              <PropertyRef Name="CursoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CursosMat__Mater__5DCAEF64">
+          <End Role="Materias" Type="Self.Materia" Multiplicity="0..1" />
+          <End Role="CursosMaterias" Type="Self.CursosMateria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materias">
+              <PropertyRef Name="MateriaID" />
+            </Principal>
+            <Dependent Role="CursosMaterias">
+              <PropertyRef Name="MateriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inscripci__Estud__2E1BDC42">
+          <End Role="Estudiantes" Type="Self.Estudiante" Multiplicity="0..1" />
+          <End Role="Inscripciones" Type="Self.Inscripcione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estudiantes">
+              <PropertyRef Name="EstudianteID" />
+            </Principal>
+            <Dependent Role="Inscripciones">
+              <PropertyRef Name="EstudianteID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pagos__Inscripci__32E0915F">
+          <End Role="Inscripciones" Type="Self.Inscripcione" Multiplicity="0..1" />
+          <End Role="Pagos" Type="Self.Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Inscripciones">
+              <PropertyRef Name="InscripcionID" />
+            </Principal>
+            <Dependent Role="Pagos">
+              <PropertyRef Name="InscripcionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requisito__Nivel__3F466844">
+          <End Role="Niveles" Type="Self.Nivele" Multiplicity="0..1" />
+          <End Role="Requisitos" Type="Self.Requisito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Niveles">
+              <PropertyRef Name="NivelID" />
+            </Principal>
+            <Dependent Role="Requisitos">
+              <PropertyRef Name="NivelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AcademiaSistemasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Calificaciones" EntityType="Self.Calificacione" />
+          <EntitySet Name="Categorias" EntityType="Self.Categoria" />
+          <EntitySet Name="CursoCategorias" EntityType="Self.CursoCategoria" />
+          <EntitySet Name="CursoHorarios" EntityType="Self.CursoHorario" />
+          <EntitySet Name="CursoRecursoes" EntityType="Self.CursoRecurso" />
+          <EntitySet Name="Cursos" EntityType="Self.Curso" />
+          <EntitySet Name="CursosMaterias" EntityType="Self.CursosMateria" />
+          <EntitySet Name="Estudiantes" EntityType="Self.Estudiante" />
+          <EntitySet Name="Horarios" EntityType="Self.Horario" />
+          <EntitySet Name="Inscripciones" EntityType="Self.Inscripcione" />
+          <EntitySet Name="Materias" EntityType="Self.Materia" />
+          <EntitySet Name="Niveles" EntityType="Self.Nivele" />
+          <EntitySet Name="Pagos" EntityType="Self.Pago" />
+          <EntitySet Name="Profesores" EntityType="Self.Profesore" />
+          <EntitySet Name="Recursos" EntityType="Self.Recurso" />
+          <EntitySet Name="Requisitos" EntityType="Self.Requisito" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK__Calificac__Curso__37A5467C" Association="Self.FK__Calificac__Curso__37A5467C">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="Calificaciones" EntitySet="Calificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Calificac__Estud__36B12243" Association="Self.FK__Calificac__Estud__36B12243">
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+            <End Role="Calificaciones" EntitySet="Calificaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursoCate__Categ__46E78A0C" Association="Self.FK__CursoCate__Categ__46E78A0C">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="CursoCategoria" EntitySet="CursoCategorias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursoCate__Curso__45F365D3" Association="Self.FK__CursoCate__Curso__45F365D3">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="CursoCategoria" EntitySet="CursoCategorias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursoHora__Curso__4D94879B" Association="Self.FK__CursoHora__Curso__4D94879B">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="CursoHorario" EntitySet="CursoHorarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursoHora__Horar__4E88ABD4" Association="Self.FK__CursoHora__Horar__4E88ABD4">
+            <End Role="Horarios" EntitySet="Horarios" />
+            <End Role="CursoHorario" EntitySet="CursoHorarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursoRecu__Curso__5535A963" Association="Self.FK__CursoRecu__Curso__5535A963">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="CursoRecurso" EntitySet="CursoRecursoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursoRecu__Recur__5629CD9C" Association="Self.FK__CursoRecu__Recur__5629CD9C">
+            <End Role="Recursos" EntitySet="Recursos" />
+            <End Role="CursoRecurso" EntitySet="CursoRecursoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cursos__Profesor__2A4B4B5E" Association="Self.FK__Cursos__Profesor__2A4B4B5E">
+            <End Role="Profesores" EntitySet="Profesores" />
+            <End Role="Cursos" EntitySet="Cursos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursosMat__Curso__5CD6CB2B" Association="Self.FK__CursosMat__Curso__5CD6CB2B">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="CursosMaterias" EntitySet="CursosMaterias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inscripci__Curso__2F10007B" Association="Self.FK__Inscripci__Curso__2F10007B">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="Inscripciones" EntitySet="Inscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requisito__Curso__3E52440B" Association="Self.FK__Requisito__Curso__3E52440B">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="Requisitos" EntitySet="Requisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CursosMat__Mater__5DCAEF64" Association="Self.FK__CursosMat__Mater__5DCAEF64">
+            <End Role="Materias" EntitySet="Materias" />
+            <End Role="CursosMaterias" EntitySet="CursosMaterias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inscripci__Estud__2E1BDC42" Association="Self.FK__Inscripci__Estud__2E1BDC42">
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+            <End Role="Inscripciones" EntitySet="Inscripciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pagos__Inscripci__32E0915F" Association="Self.FK__Pagos__Inscripci__32E0915F">
+            <End Role="Inscripciones" EntitySet="Inscripciones" />
+            <End Role="Pagos" EntitySet="Pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requisito__Nivel__3F466844" Association="Self.FK__Requisito__Nivel__3F466844">
+            <End Role="Niveles" EntitySet="Niveles" />
+            <End Role="Requisitos" EntitySet="Requisitos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AcademiaSistemasModelStoreContainer" CdmEntityContainer="AcademiaSistemasEntities">
+          <EntitySetMapping Name="Calificaciones">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Calificacione">
+              <MappingFragment StoreEntitySet="Calificaciones">
+                <ScalarProperty Name="CalificacionID" ColumnName="CalificacionID" />
+                <ScalarProperty Name="EstudianteID" ColumnName="EstudianteID" />
+                <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categorias">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Categoria">
+              <MappingFragment StoreEntitySet="Categorias">
+                <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
+                <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CursoCategorias">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.CursoCategoria">
+              <MappingFragment StoreEntitySet="CursoCategoria">
+                <ScalarProperty Name="CursoCategoriaID" ColumnName="CursoCategoriaID" />
+                <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+                <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CursoHorarios">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.CursoHorario">
+              <MappingFragment StoreEntitySet="CursoHorario">
+                <ScalarProperty Name="CursoHorarioID" ColumnName="CursoHorarioID" />
+                <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+                <ScalarProperty Name="HorarioID" ColumnName="HorarioID" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CursoRecursoes">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.CursoRecurso">
+              <MappingFragment StoreEntitySet="CursoRecurso">
+                <ScalarProperty Name="CursoRecursoID" ColumnName="CursoRecursoID" />
+                <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+                <ScalarProperty Name="RecursoID" ColumnName="RecursoID" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cursos">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Curso">
+              <MappingFragment StoreEntitySet="Cursos">
+                <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+                <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
+                <ScalarProperty Name="Creditos" ColumnName="Creditos" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="ProfesorID" ColumnName="ProfesorID" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CursosMaterias">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.CursosMateria">
+              <MappingFragment StoreEntitySet="CursosMaterias">
+                <ScalarProperty Name="CursoMateriaID" ColumnName="CursoMateriaID" />
+                <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+                <ScalarProperty Name="MateriaID" ColumnName="MateriaID" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estudiantes">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Estudiante">
+              <MappingFragment StoreEntitySet="Estudiantes">
+                <ScalarProperty Name="EstudianteID" ColumnName="EstudianteID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Horarios">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Horario">
+              <MappingFragment StoreEntitySet="Horarios">
+                <ScalarProperty Name="HorarioID" ColumnName="HorarioID" />
+                <ScalarProperty Name="DiaSemana" ColumnName="DiaSemana" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inscripciones">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Inscripcione">
+              <MappingFragment StoreEntitySet="Inscripciones">
+                <ScalarProperty Name="InscripcionID" ColumnName="InscripcionID" />
+                <ScalarProperty Name="EstudianteID" ColumnName="EstudianteID" />
+                <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+                <ScalarProperty Name="FechaInscripcion" ColumnName="FechaInscripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materias">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Materia">
+              <MappingFragment StoreEntitySet="Materias">
+                <ScalarProperty Name="MateriaID" ColumnName="MateriaID" />
+                <ScalarProperty Name="NombreMateria" ColumnName="NombreMateria" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Niveles">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Nivele">
+              <MappingFragment StoreEntitySet="Niveles">
+                <ScalarProperty Name="NivelID" ColumnName="NivelID" />
+                <ScalarProperty Name="NombreNivel" ColumnName="NombreNivel" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pagos">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Pago">
+              <MappingFragment StoreEntitySet="Pagos">
+                <ScalarProperty Name="PagoID" ColumnName="PagoID" />
+                <ScalarProperty Name="InscripcionID" ColumnName="InscripcionID" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profesores">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Profesore">
+              <MappingFragment StoreEntitySet="Profesores">
+                <ScalarProperty Name="ProfesorID" ColumnName="ProfesorID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Recursos">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Recurso">
+              <MappingFragment StoreEntitySet="Recursos">
+                <ScalarProperty Name="RecursoID" ColumnName="RecursoID" />
+                <ScalarProperty Name="NombreRecurso" ColumnName="NombreRecurso" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requisitos">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.Requisito">
+              <MappingFragment StoreEntitySet="Requisitos">
+                <ScalarProperty Name="RequisitoID" ColumnName="RequisitoID" />
+                <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+                <ScalarProperty Name="NivelID" ColumnName="NivelID" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AcademiaSistemasModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

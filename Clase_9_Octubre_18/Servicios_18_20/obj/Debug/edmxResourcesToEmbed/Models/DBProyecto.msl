@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AcademiaSistemasModelStoreContainer" CdmEntityContainer="AcademiaSistemasEntities">
+    <EntitySetMapping Name="Calificaciones">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.Calificacione">
+        <MappingFragment StoreEntitySet="Calificaciones">
+          <ScalarProperty Name="CalificacionID" ColumnName="CalificacionID" />
+          <ScalarProperty Name="EstudianteID" ColumnName="EstudianteID" />
+          <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.Categoria">
+        <MappingFragment StoreEntitySet="Categorias">
+          <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
+          <ScalarProperty Name="NombreCategoria" ColumnName="NombreCategoria" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CursoCategorias">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.CursoCategoria">
+        <MappingFragment StoreEntitySet="CursoCategoria">
+          <ScalarProperty Name="CursoCategoriaID" ColumnName="CursoCategoriaID" />
+          <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+          <ScalarProperty Name="CategoriaID" ColumnName="CategoriaID" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CursoHorarios">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.CursoHorario">
+        <MappingFragment StoreEntitySet="CursoHorario">
+          <ScalarProperty Name="CursoHorarioID" ColumnName="CursoHorarioID" />
+          <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+          <ScalarProperty Name="HorarioID" ColumnName="HorarioID" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CursoRecursoes">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.CursoRecurso">
+        <MappingFragment StoreEntitySet="CursoRecurso">
+          <ScalarProperty Name="CursoRecursoID" ColumnName="CursoRecursoID" />
+          <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+          <ScalarProperty Name="RecursoID" ColumnName="RecursoID" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cursos">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.Curso">
+        <MappingFragment StoreEntitySet="Cursos">
+          <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+          <ScalarProperty Name="NombreCurso" ColumnName="NombreCurso" />
+          <ScalarProperty Name="Creditos" ColumnName="Creditos" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ProfesorID" ColumnName="ProfesorID" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CursosMaterias">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.CursosMateria">
+        <MappingFragment StoreEntitySet="CursosMaterias">
+          <ScalarProperty Name="CursoMateriaID" ColumnName="CursoMateriaID" />
+          <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+          <ScalarProperty Name="MateriaID" ColumnName="MateriaID" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estudiantes">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.Estudiante">
+        <MappingFragment StoreEntitySet="Estudiantes">
+          <ScalarProperty Name="EstudianteID" ColumnName="EstudianteID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Horarios">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.Horario">
+        <MappingFragment StoreEntitySet="Horarios">
+          <ScalarProperty Name="HorarioID" ColumnName="HorarioID" />
+          <ScalarProperty Name="DiaSemana" ColumnName="DiaSemana" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inscripciones">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.Inscripcione">
+        <MappingFragment StoreEntitySet="Inscripciones">
+          <ScalarProperty Name="InscripcionID" ColumnName="InscripcionID" />
+          <ScalarProperty Name="EstudianteID" ColumnName="EstudianteID" />
+          <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+          <ScalarProperty Name="FechaInscripcion" ColumnName="FechaInscripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materias">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.Materia">
+        <MappingFragment StoreEntitySet="Materias">
+          <ScalarProperty Name="MateriaID" ColumnName="MateriaID" />
+          <ScalarProperty Name="NombreMateria" ColumnName="NombreMateria" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Niveles">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.Nivele">
+        <MappingFragment StoreEntitySet="Niveles">
+          <ScalarProperty Name="NivelID" ColumnName="NivelID" />
+          <ScalarProperty Name="NombreNivel" ColumnName="NombreNivel" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pagos">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.Pago">
+        <MappingFragment StoreEntitySet="Pagos">
+          <ScalarProperty Name="PagoID" ColumnName="PagoID" />
+          <ScalarProperty Name="InscripcionID" ColumnName="InscripcionID" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profesores">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.Profesore">
+        <MappingFragment StoreEntitySet="Profesores">
+          <ScalarProperty Name="ProfesorID" ColumnName="ProfesorID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recursos">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.Recurso">
+        <MappingFragment StoreEntitySet="Recursos">
+          <ScalarProperty Name="RecursoID" ColumnName="RecursoID" />
+          <ScalarProperty Name="NombreRecurso" ColumnName="NombreRecurso" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Requisitos">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.Requisito">
+        <MappingFragment StoreEntitySet="Requisitos">
+          <ScalarProperty Name="RequisitoID" ColumnName="RequisitoID" />
+          <ScalarProperty Name="CursoID" ColumnName="CursoID" />
+          <ScalarProperty Name="NivelID" ColumnName="NivelID" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="AcademiaSistemasModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

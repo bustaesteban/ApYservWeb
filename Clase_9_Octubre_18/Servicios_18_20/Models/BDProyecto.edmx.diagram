@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="60768aa61c56490696fc084323a41546" Name="Diagram1">
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Calificacione" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Categoria" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.CursoCategoria" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.CursoHorario" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.CursoRecurso" Width="1.5" PointX="8.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Curso" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.CursosMateria" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Estudiante" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Horario" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Inscripcione" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Materia" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Nivele" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Pago" Width="1.5" PointX="10.5" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Profesore" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Recurso" Width="1.5" PointX="6" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.Requisito" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AcademiaSistemasModel.sysdiagram" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__Calificac__Curso__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__Calificac__Estud__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__CursoCate__Categ__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__CursoCate__Curso__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__CursoHora__Curso__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__CursoHora__Horar__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__CursoRecu__Curso__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__CursoRecu__Recur__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__Cursos__Profesor__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__CursosMat__Curso__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__Inscripci__Curso__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__Requisito__Curso__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__CursosMat__Mater__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__Inscripci__Estud__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__Pagos__Inscripci__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="AcademiaSistemasModel.FK__Requisito__Nivel__3F466844" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
